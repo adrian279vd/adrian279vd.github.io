@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#F8FAFC"/>
+<rect width="20" height="630" fill="#143A5C"/>
+<rect x="20" width="1180" height="9" fill="#A36B49"/>
+<text x="94" y="127" font-size="24" font-family="Arial,sans-serif" letter-spacing="1.5" fill="#396779">UNIVERSIDAD DE TALCA   /   MATHEMATICS</text>
+<text x="87" y="288" font-size="72" font-family="Georgia,serif" fill="#143A5C">Adrián Vidal Delgado</text>
+<line x1="94" y1="354" x2="1107" y2="354" stroke="#D5E0E7" stroke-width="2"/>
+<text x="94" y="434" font-size="34" font-family="Arial,sans-serif" fill="#17212B">PhD Candidate in Mathematics</text>
+<text x="94" y="542" font-size="26" font-family="Arial,sans-serif" fill="#596A79">adrian279vd.github.io</text>
+<rect x="1025" y="486" width="78" height="6" fill="#A36B49"/>
+</svg>
