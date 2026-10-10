@@ -348,3 +348,135 @@
 }
 .event-index a:hover, .event-index a:focus-visible { border-bottom-color: var(--accent); }
 #schools .entry, #talks .entry { scroll-margin-top: 130px; }
+
+
+/* Color palette — more pronounced editorial accents */
+:root {
+  --bg: #ffffff;
+  --text: #17212b;
+  --muted: #536675;
+  --accent: #143a5c;
+  --accent-2: #396779;
+  --copper: #a36b49;
+  --copper-deep: #875337;
+  --border: #cfdae4;
+  --soft: #f2f7fa;
+}
+
+/* A thin signature line, mirrored by the favicon and social preview. */
+.nav-wrap {
+  border-top: 3px solid var(--copper);
+  border-bottom-color: #cad8e3;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 12px rgba(20, 58, 92, 0.035);
+}
+
+.nav-name a { color: var(--accent); }
+.nav-links a {
+  color: #38566d;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color .18s ease, border-color .18s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { color: var(--accent); border-bottom-color: var(--copper); text-decoration: none; }
+.nav-links a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--copper);
+}
+
+/* Richer headers without heavy panels or card layouts. */
+.hero,
+.page-intro {
+  border-left: 4px solid var(--copper);
+  background: linear-gradient(105deg, #f0f6fa 0%, #f8fbfd 50%, #ffffff 100%);
+  padding-left: 23px;
+  padding-right: 18px;
+  border-bottom-color: var(--border);
+}
+.hero {
+  padding-top: 24px;
+  padding-bottom: 27px;
+}
+.page-intro {
+  padding-top: 22px;
+  padding-bottom: 21px;
+}
+h1 { color: #123a5d; }
+.areas { color: #315e73; }
+.page-intro p { color: #506779; }
+
+/* Copper section rules and dates give a clear editorial hierarchy. */
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+}
+h2::before {
+  content: "";
+  display: inline-block;
+  flex: 0 0 4px;
+  width: 4px;
+  height: 1.05em;
+  border-radius: 2px;
+  background: var(--copper);
+}
+.entry-date,
+.publication-year { color: var(--copper-deep); }
+.subheading { color: #24546b; }
+
+/* Links stay typographic, with a more legible visual affordance. */
+a:hover { color: #276c82; }
+.actions a,
+.home-nav a,
+.publication-links a,
+.event-index a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px solid #cba88d;
+  padding-bottom: 3px;
+  transition: color .18s ease, border-color .18s ease;
+}
+.actions a:hover,
+.home-nav a:hover,
+.publication-links a:hover,
+.event-index a:hover,
+.actions a:focus-visible,
+.home-nav a:focus-visible,
+.publication-links a:focus-visible,
+.event-index a:focus-visible {
+  color: #236679;
+  border-bottom-color: var(--copper-deep);
+  text-decoration: none;
+}
+.home-nav {
+  gap: 12px 28px;
+  padding-top: 24px;
+  padding-bottom: 10px;
+}
+.event-index a { border-bottom-color: #d6e0e7; }
+.event-index a:hover, .event-index a:focus-visible { border-bottom-color: var(--copper); }
+
+/* Preserve readable states and mobile spacing. */
+a:focus-visible,
+.mobile-nav summary:focus-visible {
+  outline: 2px solid var(--copper-deep);
+  outline-offset: 3px;
+}
+.mobile-nav summary {
+  background: #f3f7fa;
+  border-color: #bfceda;
+}
+.mobile-links a[aria-current="page"] {
+  color: var(--accent);
+  background: #edf4f8;
+  border-left: 3px solid var(--copper);
+  padding-left: 15px;
+}
+@media (max-width: 760px) {
+  .hero,
+  .page-intro { padding-left: 16px; padding-right: 12px; }
+  .hero { padding-top: 20px; padding-bottom: 23px; }
+  .page-intro { padding-top: 17px; padding-bottom: 17px; }
+}
