@@ -331,3 +331,20 @@
   .hero { padding-bottom: 28px; }
   .page-intro { padding: 0 0 15px; }
 }
+
+/* Events page section navigation */
+.event-index {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  padding: 18px 0 2px;
+  font-size: 0.93rem;
+}
+.event-index a {
+  font-weight: 650;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+}
+.event-index a:hover, .event-index a:focus-visible { border-bottom-color: var(--accent); }
+#schools .entry, #talks .entry { scroll-margin-top: 130px; }
