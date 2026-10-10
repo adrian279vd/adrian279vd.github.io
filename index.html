@@ -1,321 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adrián Vidal Delgado</title>
-  <meta name="description" content="Academic website of Adrián Vidal Delgado, PhD candidate in Mathematics at Universidad de Talca." />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #17212b;
-      --muted: #5b6875;
-      --accent: #0f3557;
-      --accent-2: #244f73;
-      --border: #d7e0e8;
-      --soft: #f4f7fa;
-      --max-width: 1280px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.5;
-      font-size: 16px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 12px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-name {
-      font-size: 0.93rem;
-      font-weight: 650;
-      color: var(--accent);
-      white-space: nowrap;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 0.86rem;
-    }
-
-    .nav-links a {
-      color: #425466;
-      font-weight: 500;
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 38px 28px 76px;
-    }
-
-    .hero {
-      padding: 4px 0 28px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h1 {
-      margin: 0 0 6px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.65rem, 3vw, 2.3rem);
-      line-height: 1.08;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: -0.02em;
-    }
-
-    .position {
-      font-size: 0.94rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .areas {
-      color: #2f4354;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1rem;
-      max-width: 1180px;
-      margin-bottom: 12px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.86rem;
-    }
-
-    .actions a {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    section.content {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    #about,
-    #research {
-      padding: 34px 0;
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.42rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-
-    p {
-      max-width: 1220px;
-      margin: 0 0 0.72em;
-    }
-
-    .publication-entry {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 22px;
-      padding: 8px 0 4px;
-      align-items: start;
-    }
-
-    .publication-year {
-      color: var(--accent-2);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding-top: 2px;
-    }
-
-    .publication-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.08rem;
-      line-height: 1.45;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .publication-meta {
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
-
-    .publication-links {
-      margin-top: 7px;
-      font-size: 0.9rem;
-    }
-
-    .publication-links a {
-      margin-right: 16px;
-      font-weight: 600;
-    }
-
-    .entry-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .entry {
-      display: grid;
-      grid-template-columns: 118px minmax(0, 1fr);
-      gap: 22px;
-      align-items: start;
-      padding: 4px 0;
-    }
-
-    .entry-date {
-      color: var(--accent-2);
-      font-weight: 700;
-      font-size: 0.91rem;
-      padding-top: 2px;
-    }
-
-    .entry-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.03rem;
-      line-height: 1.42;
-      margin-bottom: 4px;
-    }
-
-    .entry-meta {
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.5;
-    }
-
-    .compact-list {
-      margin: 0;
-      padding-left: 1.15rem;
-    }
-
-    .compact-list li {
-      margin-bottom: 0.55rem;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 42px;
-    }
-
-    .subheading {
-      margin: 18px 0 9px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.04rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .placeholder {
-      min-height: 30px;
-    }
-
-    footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 26px 28px 42px;
-      font-size: 0.82rem;
-      color: #8a96a3;
-    }
-
-    @media (max-width: 760px) {
-      body { font-size: 16px; }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 9px;
-      }
-
-      .nav-links {
-        gap: 10px 14px;
-      }
-
-      main {
-        padding-top: 46px;
-      }
-
-      .hero {
-        padding-bottom: 48px;
-      }
-
-      .publication-entry {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-
-      .publication-year {
-        padding-top: 0;
-      }
-
-      .entry {
-        grid-template-columns: 1fr;
-        gap: 3px;
-      }
-
-      .entry-date {
-        padding-top: 0;
-      }
-
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Adrián Vidal Delgado</title>
+  <meta name="description" content="Personal academic website of Adrián Vidal Delgado, PhD candidate at Universidad de Talca.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Home | Adrián Vidal Delgado">
+  <meta property="og:description" content="Personal academic website of Adrián Vidal Delgado, PhD candidate at Universidad de Talca.">
+  <meta property="og:url" content="https://adrian279vd.github.io/index.html">
+  <link rel="canonical" href="https://adrian279vd.github.io/index.html">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="nav-wrap">
-    <nav>
-      <div class="nav-name">Adrián Vidal Delgado</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Research Outputs</a>
-        <a href="#talks">Talks</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#thesis">Thesis</a>
-        <a href="#education">Education</a>
-        <a href="#funding">Funding</a>
-        <a href="#cv">CV</a>
-      </div>
+    <nav aria-label="Main navigation">
+      <div class="nav-name"><a href="index.html">Adrián Vidal Delgado</a></div>
+      <div class="nav-links"><a href="index.html" aria-current="page">Home</a>
+        <a href="research.html">Research</a>
+        <a href="talks.html">Talks</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="education.html">Education</a>
+        <a href="academic.html">Academic Activity</a>
+        <a href="files/Adrian_Vidal_Short_CV.pdf" target="_blank" rel="noopener">Short CV</a></div>
+      <details class="mobile-nav">
+        <summary aria-label="Open navigation">Menu</summary>
+        <div class="mobile-links"><a href="index.html" aria-current="page">Home</a>
+          <a href="research.html">Research</a>
+          <a href="talks.html">Talks</a>
+          <a href="teaching.html">Teaching</a>
+          <a href="education.html">Education</a>
+          <a href="academic.html">Academic Activity</a>
+          <a href="files/Adrian_Vidal_Short_CV.pdf" target="_blank" rel="noopener">Short CV</a></div>
+      </details>
     </nav>
   </div>
-
   <main>
     <header class="hero">
       <h1>Adrián Vidal Delgado</h1>
@@ -336,7 +55,7 @@
         <a href="https://orcid.org/0009-0002-2338-5591" target="_blank" rel="noopener">ORCID ↗</a>
       </div>
     </header>
-
+    <div class="home-nav"><a href="research.html">Research & publications ↗</a><a href="talks.html">Talks & slides ↗</a><a href="education.html">Education ↗</a></div>
     <section class="content" id="about">
       <h2>About me</h2>
       <p>
@@ -353,255 +72,6 @@
         Outside mathematics, I enjoy football, hiking, video games, and spending time in quiet places.
       </p>
     </section>
-
-    <section class="content" id="research">
-      <h2>Current Research</h2>
-      <p>
-        My research focuses on orthogonal polynomials and symmetric functions, especially Hall–Littlewood and
-        Koornwinder-type structures, and their applications to spectral theory, probability, and integrable models.
-      </p>
-      <p>
-        I am particularly interested in stochastic models on partitions and discrete state spaces whose transition
-        operators admit explicit spectral descriptions, with emphasis on orthogonality, boundary parameters,
-        spectral data, and long-time behavior.
-      </p>
-      <p>
-        I also study exactly solvable models in mathematical physics, including quantum spin chains and finite random
-        walks, where special-function methods provide explicit eigenfunctions and transition formulas.
-      </p>
-    </section>
-
-    <section class="content" id="publications">
-      <h2>Research Outputs</h2>
-
-      <div class="publication-entry">
-        <div class="publication-year">2025</div>
-        <div>
-          <div class="publication-title">Approximation of Askey–Wilson roots</div>
-          <div class="publication-meta">
-            Jan Felipe van Diejen, Andrés Soledispa Tibán, Adrián Vidal<br>
-            <strong>Accepted for publication in <em>Constructive Approximation</em>.</strong>
-          </div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/abs/2501.17710" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="publication-entry">
-        <div class="publication-year">2025</div>
-        <div>
-          <div class="publication-title">The Spectrum of the Finite Open XX Quantum Spin Chain with Transverse Magnetic Boundary Fields via Orthogonal Polynomials</div>
-          <div class="publication-meta">
-            Jan Felipe van Diejen, Andrés Soledispa Tibán, Adrián Vidal<br>
-            <strong>Published.</strong> <em>Annales Henri Poincaré</em> 27(4), 1451–1495.
-          </div>
-          <div class="publication-links">
-            <a href="https://doi.org/10.1007/s00023-025-01564-0" target="_blank" rel="noopener">Journal ↗</a>
-            <a href="https://doi.org/10.1007/s00023-025-01564-0" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" id="talks">
-      <h2>Talks</h2>
-      <div class="entry-list">
-        <div class="entry">
-          <div class="entry-date">Aug. 2026</div>
-          <div>
-            <div class="entry-title">Hall–Littlewood Polynomials and Interacting Random Walks on Partitions</div>
-            <div class="entry-meta">CIMPA School on Combinatorial Structures in Geometry, Graphs, and Symmetry · Universidad de Costa Rica, San José, Costa Rica · Short contributed talk</div>
-            <div class="publication-links"><a href="files/CIMPA_2026_Slides.pdf" target="_blank" rel="noopener">Slides ↗</a></div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Jun. 2026</div>
-          <div>
-            <div class="entry-title">Biased random walks on partitions and hyperoctahedral Hall–Littlewood polynomials</div>
-            <div class="entry-meta">OPSF-S11 2026 Summer School · Universidad de Alcalá, Spain · Short contributed talk</div>
-            <div class="publication-links"><a href="files/OPSF_2026_Slides.pdf" target="_blank" rel="noopener">Slides ↗</a></div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">May 2026</div>
-          <div>
-            <div class="entry-title">Raíces de los polinomios de Askey–Wilson</div>
-            <div class="entry-meta">Seminario No-Degenerado · Universidad de Talca, Chile · 8 May 2026</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Apr. 2026</div>
-          <div>
-            <div class="entry-title">Aproximación de las raíces de los polinomios de Askey–Wilson mediante una iteración de punto fijo</div>
-            <div class="entry-meta">XXXVIII Jornada de Matemática de la Zona Sur · Universidad del Bío-Bío, Concepción, Chile · Física Matemática</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Oct. 2025</div>
-          <div>
-            <div class="entry-title">Análisis Espectral de una clase de cadenas de spín cuántico XX</div>
-            <div class="entry-meta">ICMAM Central America and the Caribbean 2025 · Online presentation · 16 Oct. 2025</div>
-            <div class="publication-links"><a href="files/ICMAM_2025_Slides.pdf" target="_blank" rel="noopener">Slides ↗</a></div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Jul. 2025</div>
-          <div>
-            <div class="entry-title">La función de onda para n-magnones en la cadena de spin XX no homogénea</div>
-            <div class="entry-meta">Seminario No-Degenerado · Universidad de Talca, Chile · 4 Jul. 2025</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Jun. 2025</div>
-          <div>
-            <div class="entry-title">Un acercamiento a funciones de onda para n-magnones</div>
-            <div class="entry-meta">Seminario No-Degenerado · Universidad de Talca, Chile</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">Apr. 2025</div>
-          <div>
-            <div class="entry-title">La función de onda para n-magnones en la cadena de spin XX no homogénea</div>
-            <div class="entry-meta">XXXVII Jornada de Matemática de la Zona Sur · Universidad Católica del Maule, Talca, Chile · 23 Apr. 2025</div>
-            <div class="publication-links"><a href="files/JMZS_2025_Slides.pdf" target="_blank" rel="noopener">Slides ↗</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" id="teaching">
-      <h2>Teaching</h2>
-      <div class="entry-list">
-        <div class="entry">
-          <div class="entry-date">2025</div>
-          <div>
-            <div class="entry-title">Lecturer · Universidad de Talca</div>
-            <div class="entry-meta">Mathematics for Engineering in Nutrition and Dietetics</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2022–2024</div>
-          <div>
-            <div class="entry-title">Teaching Assistant · Universidad de Talca</div>
-            <div class="entry-meta">Probability and Statistics · Calculus · Linear Algebra · ODEs</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2020–2022</div>
-          <div>
-            <div class="entry-title">Teaching Assistant · Universidad Tecnológica de La Habana (CUJAE)</div>
-            <div class="entry-meta">Discrete Mathematics</div>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2018–2020</div>
-          <div>
-            <div class="entry-title">Teaching Assistant · Universidad de La Habana</div>
-            <div class="entry-meta">Calculus</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="content" id="thesis">
-      <h2>Master's Thesis</h2>
-      <div class="entry">
-        <div class="entry-date">2024</div>
-        <div>
-          <div class="entry-title">
-            The Spectrum of the Discrete Laplacian on Z+, via the Orthogonality of Bernstein–Szegő Polynomials and Generalized Schur Functions
-          </div>
-          <div class="entry-meta">
-            M.Sc. thesis, Universidad de Talca · Advisor: Jan Felipe van Diejen
-          </div>
-          <div class="publication-links">
-            <a href="files/Tesis_Magister_Utalca.pdf" target="_blank" rel="noopener">PDF ↗</a>
-            <a href="files/Tesis_Magister_Slides.pdf" target="_blank" rel="noopener">Slides ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" id="education">
-      <h2>Education & Training</h2>
-
-      <div class="entry-list">
-        <div class="entry">
-          <div class="entry-date">2024–2028</div>
-          <div>
-            <div class="entry-title">PhD in Mathematics · Universidad de Talca</div>
-            <div class="entry-meta">PhD candidate since March 2026 · Advisor: Jan Felipe van Diejen</div>
-            <p>Thesis project: <em>Biased random walks on partitions and hyperoctahedral Hall–Littlewood polynomials</em>.</p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2022–2024</div>
-          <div>
-            <div class="entry-title">M.Sc. in Mathematics · Universidad de Talca</div>
-            <div class="entry-meta">Advisor: Jan Felipe van Diejen</div>
-            <p>Thesis: <em>The Spectrum of the Discrete Laplacian on Z+, via the Orthogonality of Bernstein–Szegő Polynomials and Generalized Schur Functions</em>.</p>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2016–2020</div>
-          <div>
-            <div class="entry-title">B.Sc. in Mathematics · Universidad de La Habana</div>
-            <div class="entry-meta">Advisor: Gemayquzel Bouza Allende</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="subheading">Schools</div>
-      <ul class="compact-list">
-        <li>CIMPA School on Combinatorial Structures in Geometry, Graphs, and Symmetry, Universidad de Costa Rica, San José, Costa Rica, 2026.</li>
-        <li>Summer School OPSF-S11 2026, Universidad de Alcalá, Spain.</li>
-        <li>2nd National Meeting of Mathematics Students, Universidad de Talca, 2024.</li>
-        <li>Winter School on Mathematical Modelling in Epidemiology and Medicine, 2023.</li>
-      </ul>
-    </section>
-
-    <section class="content" id="funding">
-      <h2>Funding & Academic Service</h2>
-      <div class="two-col">
-        <div>
-          <div class="subheading">Scholarships and funding</div>
-          <ul class="compact-list">
-            <li>ANID National Doctoral Scholarship, Chile, 2026–2028.</li>
-            <li>Thesis student, FONDECYT Regular Project 1250427, 2025.</li>
-            <li>Universidad de Talca scholarship for PhD, 2024–2025.</li>
-            <li>Thesis student, FONDECYT Regular Project 1210015, 2023.</li>
-          </ul>
-        </div>
-        <div>
-          <div class="subheading">Academic service</div>
-          <ul class="compact-list">
-            <li>Organizing Committee, 2026 Summer School for Undergraduates in Mathematics, Universidad de Talca.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="content" id="cv">
-      <h2>Curriculum Vitae</h2>
-      <p>
-        <a href="files/Adrian_Vidal_Short_CV.pdf" target="_blank" rel="noopener"><strong>Download Short CV (PDF) ↗</strong></a> <span class="entry-meta"> · October 2026</span>
-      </p>
-    </section>
-
     <section class="content" id="contact">
       <h2>Contact</h2>
       <p>
@@ -621,9 +91,6 @@
       </p>
     </section>
   </main>
-
-  <footer>
-    © 2026 Adrián Vidal Delgado
-  </footer>
+  <footer>© 2026 Adrián Vidal Delgado · <a href="mailto:adrian.vidal@utalca.cl">adrian.vidal@utalca.cl</a></footer>
 </body>
 </html>
