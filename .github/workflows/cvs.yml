@@ -1,0 +1,34 @@
+name: Compile academic CVs
+
+on:
+  push:
+    paths:
+      - "cv-source/**"
+      - ".github/workflows/cvs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile XeLaTeX files
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: |
+            Adrian_Vidal_Short_CV.tex
+            Adrian_Vidal_Full_CV.tex
+          working_directory: cv-source
+          latexmk_use_xelatex: true
+      - name: Publish PDFs
+        run: |
+          mkdir -p files
+          cp cv-source/Adrian_Vidal_Short_CV.pdf files/Adrian_Vidal_Short_CV.pdf
+          cp cv-source/Adrian_Vidal_Full_CV.pdf files/Adrian_Vidal_Full_CV.pdf
+          git config user.name github-actions
+          git config user.email actions@users.noreply.github.com
+          git add files/Adrian_Vidal_Short_CV.pdf files/Adrian_Vidal_Full_CV.pdf
+          git diff --staged --quiet || (git commit -m "Publish final CV PDFs" && git push)
