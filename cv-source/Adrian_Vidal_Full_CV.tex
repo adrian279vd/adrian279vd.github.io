@@ -1,0 +1,213 @@
+% !TEX TS-program = xelatex
+\documentclass[10pt,a4paper]{article}
+
+% Academic CV | Editorial layout, aligned section rows
+% Compile with XeLaTeX (Overleaf: Menu > Compiler > XeLaTeX)
+\usepackage[a4paper,top=13mm,bottom=12mm,left=18mm,right=18mm]{geometry}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{fancyhdr}
+
+\setmainfont{LibertinusSerif-Regular.otf}[BoldFont=LibertinusSerif-Bold.otf,ItalicFont=LibertinusSerif-Italic.otf,BoldItalicFont=LibertinusSerif-BoldItalic.otf]
+\setsansfont{Lato}
+\definecolor{ink}{HTML}{172B3B}
+\definecolor{deepblue}{HTML}{193C58}
+\definecolor{blue}{HTML}{446982}
+\definecolor{quiet}{HTML}{596C7B}
+\definecolor{pale}{HTML}{D4DDE3}
+\definecolor{warm}{HTML}{F2F5F6}
+\definecolor{teal}{HTML}{4D7F86}
+\definecolor{ochre}{HTML}{AC7855}
+\definecolor{softteal}{HTML}{E7EFF0}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=teal,
+  linkcolor=deepblue,
+  pdfauthor={Adrián Vidal Delgado},
+  pdftitle={Adrián Vidal Delgado | Academic CV}
+}
+\urlstyle{same}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\color{ink}
+\linespread{1.035}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{2em}
+
+% Type styles
+\newcommand{\caps}[1]{{\sffamily\fontsize{8}{10}\selectfont\bfseries\addfontfeatures{LetterSpace=1.35}#1}}
+\newcommand{\tinycaps}[1]{{\sffamily\fontsize{8}{10}\selectfont\color{quiet}\addfontfeatures{LetterSpace=0.9}#1}}
+\newcommand{\subtle}[1]{{\sffamily\fontsize{9.1}{12.5}\selectfont\color{quiet}#1}}
+\newcommand{\bodytext}[1]{{\sffamily\fontsize{9.25}{12.7}\selectfont#1}}
+\newcommand{\sect}[1]{%
+  \vspace{9pt}%
+  {\caps{\textcolor{deepblue}{#1}}}\par\vspace{3.5pt}%
+  {\color{pale}\rule{\linewidth}{0.5pt}}\par\vspace{6pt}%
+}
+\newcommand{\sectleft}[1]{%
+  \vspace{18pt}%
+  {\caps{\textcolor{deepblue}{#1}}}\par\vspace{4.5pt}%
+  {\color{pale}\rule{\linewidth}{0.5pt}}\par\vspace{10pt}%
+}
+\newcommand{\asideentry}[3]{%
+  {\sffamily\fontsize{9.2}{12.6}\selectfont\bfseries #1}\par
+  {\sffamily\fontsize{8.55}{11.6}\selectfont\color{quiet}#2}\par
+  \if\relax\detokenize{#3}\relax\else
+    {\sffamily\fontsize{8.55}{11.5}\selectfont #3}\par
+  \fi
+  \vspace{8.4pt}%
+}
+% Each entry in the wide column is anchored by a slim, colored side tab.
+\newcommand{\entrytab}[3]{%
+  \noindent
+  \begin{minipage}[t]{5pt}%
+    \vspace{3.5pt}\color{#1}\rule{2.5pt}{14pt}%
+  \end{minipage}\hspace{7.5pt}%
+  \begin{minipage}[t]{\dimexpr\linewidth-12.5pt\relax}%
+    \vspace{0pt}#2%
+  \end{minipage}\par\vspace{#3}%
+}
+\newcommand{\paper}[3]{%
+  \entrytab{ochre}{%
+    {\fontsize{11.2}{14.2}\selectfont\bfseries\color{ink}#1}\par\vspace{2.3pt}%
+    {\bodytext{#2}}\par\vspace{2pt}%
+    {\sffamily\fontsize{8.9}{12}\selectfont\color{quiet}#3}\par
+  }{11pt}%
+}
+\newcommand{\talk}[3]{%
+  \entrytab{teal}{%
+    {\sffamily\fontsize{8}{10}\selectfont\bfseries\addfontfeatures{LetterSpace=0.8}\color{ochre}#1}\par\vspace{2.1pt}%
+    {\sffamily\fontsize{9.15}{12.5}\selectfont\bfseries #2}\par\vspace{1.5pt}%
+    {\sffamily\fontsize{8.65}{11.7}\selectfont\color{quiet}#3}\par
+  }{7pt}%
+}
+\newcommand{\lineentry}[2]{%
+  \entrytab{blue}{%
+    {\sffamily\fontsize{9.15}{12.35}\selectfont\textbf{#1}}\par
+    {\sffamily\fontsize{8.75}{11.9}\selectfont\color{quiet}#2}\par
+  }{6pt}%
+}
+
+
+
+% Paired rows align section headers across both columns and automatically
+% continue at the height of the taller section. Edit each pair together.
+\renewcommand{\sectleft}[1]{\sect{#1}}
+\newcommand{\pairedsections}[2]{%
+  \noindent\begin{tabular}{@{}p{0.325\textwidth}@{\hspace{0.032\textwidth}{\color{pale}\vrule width 0.65pt}\hspace{0.032\textwidth}}p{0.607\textwidth}@{}}
+    \RaggedRight #1 & \RaggedRight #2
+  \end{tabular}\par
+}
+
+\begin{document}
+
+% ================= PAGE 1 =================
+\begin{minipage}[t]{0.69\textwidth}
+  {\sffamily\fontsize{8}{11}\selectfont\color{ochre}\bfseries\addfontfeatures{LetterSpace=1.8}ACADEMIC CV}\par\vspace{8pt}
+  {\fontsize{28}{30}\selectfont\color{deepblue}Adrián\par Vidal Delgado}\par\vspace{7pt}
+  {\sffamily\fontsize{10.8}{13}\selectfont\color{ink}\bfseries PhD Candidate in Mathematics}\par
+  {\sffamily\fontsize{9.3}{13}\selectfont\color{quiet}Institute of Mathematics · Universidad de Talca, Chile}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.29\textwidth}
+  \raggedleft\vspace{11pt}
+  {\sffamily\fontsize{9.05}{13}\selectfont
+  \href{mailto:adrian.vidal@utalca.cl}{adrian.vidal@utalca.cl}\par\vspace{4pt}
+  \href{https://adrian279vd.github.io/}{adrian279vd.github.io}\par\vspace{4pt}
+  \href{https://scholar.google.com/citations?user=HVv9miEAAAAJ\&hl=en}{Google Scholar}\; /\; \href{https://orcid.org/0009-0002-2338-5591}{ORCID}\par}
+\end{minipage}
+
+\vspace{10pt}
+{\color{deepblue}\rule{\textwidth}{1.15pt}}
+\vspace{5pt}
+
+
+
+% ================= PAGE 1 =================
+\pairedsections{
+  \sectleft{RESEARCH AREAS}
+  {\sffamily\fontsize{9.35}{13}\selectfont
+  Orthogonal polynomials\par\vspace{3pt}
+  Symmetric functions\par\vspace{3pt}
+  Integrable systems\par\vspace{3pt}
+  Stochastic processes\par}
+}{
+  \sect{PUBLICATIONS}
+  \paper{Approximation of Askey--Wilson roots}
+    {J. F. van Diejen, A. Soledispa Tibán, \textbf{A. Vidal}}
+    {\emph{Constructive Approximation} (2026). \href{https://doi.org/10.1007/s00365-026-09789-w}{DOI}}
+  \paper{The Spectrum of the Finite Open XX Quantum Spin Chain with Transverse Magnetic Boundary Fields via Orthogonal Polynomials}
+    {J. F. van Diejen, A. Soledispa Tibán, \textbf{A. Vidal}}
+    {\emph{Annales Henri Poincaré} \textbf{27}(4) (2026), 1451--1495. \href{https://doi.org/10.1007/s00023-025-01564-0}{DOI}}
+}
+\pairedsections{
+  \sectleft{EDUCATION}
+  \asideentry{PhD in Mathematics}{Universidad de Talca, 2024--present}{Candidate since March 2026. Expected completion: March 2028. Advisor: Jan Felipe van Diejen.}
+  \asideentry{M.Sc. in Mathematics}{Universidad de Talca, 2022--2024}{Advisor: Jan Felipe van Diejen.}
+  \asideentry{B.Sc. in Mathematics}{Universidad de La Habana, 2016--2020}{Advisor: Gemayquzel Bouza Allende.}
+}{
+  \sect{SELECTED TALKS}
+  % Five most relevant academic talks; student-only events and student seminars omitted.
+  \talk{AUGUST 2026 · COSTA RICA}
+    {Hall--Littlewood Polynomials and Interacting Random Walks on Partitions}
+    {CIMPA School on Combinatorial Structures in Geometry, Graphs, and Symmetry, Universidad de Costa Rica.}
+  \talk{JUNE 2026 · SPAIN}
+    {Biased random walks on partitions and hyperoctahedral Hall--Littlewood polynomials}
+    {OPSF-S11 Summer School, Universidad de Alcalá.}
+  \talk{APRIL 2026 · CHILE}
+    {Aproximación de las raíces de los polinomios de Askey--Wilson mediante una iteración de punto fijo}
+    {XXXVIII Jornada de Matemática de la Zona Sur, Universidad del Bío-Bío, Concepción.}
+  \talk{OCTOBER 2025 · ONLINE}
+    {Análisis espectral de una clase de cadenas de espín cuántico XX}
+    {ICMAM Central America and the Caribbean 2025 (16 October).}
+  \talk{APRIL 2025 · CHILE}
+    {La función de onda para $n$-magnones en la cadena de spin XX no homogénea}
+    {XXXVII Jornada de Matemática de la Zona Sur, Universidad Católica del Maule, Talca (23 April).}
+}
+
+\newpage
+% ================= PAGE 2 =================
+{\sffamily\fontsize{8}{11}\selectfont\color{ochre}\bfseries\addfontfeatures{LetterSpace=1.5}ACADEMIC CV  /  CONTINUED}\hfill
+{\sffamily\fontsize{9}{12}\selectfont\color{quiet}Adrián Vidal Delgado}\par
+\vspace{8pt}
+{\color{deepblue}\rule{\textwidth}{1.15pt}}
+\vspace{8pt}
+
+\pairedsections{
+  \sectleft{TEACHING}
+  \asideentry{Lecturer}{Universidad de Talca, 2025}{Mathematics for Engineering in Nutrition and Dietetics.}
+  \asideentry{Teaching Assistant}{Universidad de Talca, 2022--2024}{Probability and Statistics, Calculus, Linear Algebra, Ordinary Differential Equations.}
+  \asideentry{Teaching Assistant}{CUJAE, 2020--2022}{Discrete Mathematics.}
+  \asideentry{Teaching Assistant}{Universidad de La Habana, 2018--2020}{Calculus.}
+}{
+  \sect{FUNDING \& ACADEMIC SERVICE}
+  \lineentry{ANID National Doctoral Scholarship}{Chile, 2026--2028.}
+  \lineentry{FONDECYT Regular Project 1250427}{Thesis student, 2025.}
+  \lineentry{Universidad de Talca PhD scholarship}{2024--2025.}
+  \lineentry{FONDECYT Regular Project 1210015}{Thesis student, 2023.}
+  \lineentry{Academic service}{Organizing Committee, \emph{Summer School for Undergraduates in Mathematics} (2026), Universidad de Talca.}
+}
+\pairedsections{
+  \sectleft{SCHOOLS}
+  \asideentry{CIMPA School · Costa Rica}{2026}{Combinatorial Structures in Geometry, Graphs, and Symmetry.}
+  \asideentry{OPSF-S11 · Spain}{2026}{Summer School on Orthogonal Polynomials and Special Functions.}
+}{
+  \sect{COMPUTATIONAL WORK}
+  \lineentry{HHL Lab · work in progress}
+    {A small experimental tool I have been building to try tableau rules, adjust weights, and compare Hall--Littlewood polynomial examples.}
+}
+
+\vfill
+{\sffamily\fontsize{7.6}{10}\selectfont\color{quiet}Updated October 2026.}
+\end{document}
