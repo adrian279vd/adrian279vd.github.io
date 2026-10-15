@@ -1,0 +1,40 @@
+name: Sitemap HTTP diagnostic
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/sitemap-check.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check published sitemap as Googlebot
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import urllib.request, urllib.error, xml.etree.ElementTree as ET
+          origin="https://adrian279vd.github.io"
+          uas=[
+            ("browser","Mozilla/5.0 (compatible; website-check/1.0)"),
+            ("Googlebot","Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"),
+          ]
+          for path in ("/sitemap.xml","/robots.txt"):
+            for label,agent in uas:
+              request=urllib.request.Request(origin+path,headers={"User-Agent":agent,"Accept":"*/*"})
+              try:
+                with urllib.request.urlopen(request,timeout=20) as response:
+                  data=response.read()
+                  print("CHECK",path,label,"HTTP",response.status,"URL",response.url,"Content-Type",response.headers.get("Content-Type"),"Bytes",len(data),flush=True)
+                  if path=="/sitemap.xml":
+                    root=ET.fromstring(data)
+                    locations=[el.text for el in root.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
+                    print("XML",root.tag,"URLCOUNT",len(locations),flush=True)
+                    for u in locations:print("LOCATION",u,flush=True)
+                  else:
+                    print("ROBOTS",data.decode("utf-8"),flush=True)
+              except Exception as e:
+                print("ERROR",path,label,type(e).__name__,str(e),flush=True)
+                raise
+          PY
