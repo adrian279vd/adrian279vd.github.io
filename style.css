@@ -519,3 +519,9 @@ a { overflow-wrap: anywhere; }
   color: white;
 }
 #main-content:focus { outline: none; }
+
+/* Portrait: editorial layout, without changing the rest of the site. */
+.hero-with-portrait { display: grid; grid-template-columns: minmax(0,1fr) 220px; align-items: center; gap: clamp(22px, 4vw, 64px); }
+.hero-copy { min-width: 0; }
+.hero-portrait { display: block; width: 100%; height: auto; aspect-ratio: 220 / 275; object-fit: cover; border-radius: 3px; box-shadow: 0 5px 18px rgba(20,58,92,.08); }
+@media (max-width: 620px) { .hero-with-portrait { grid-template-columns: minmax(0,1fr); } .hero-portrait { width: min(220px, 70%); } }
